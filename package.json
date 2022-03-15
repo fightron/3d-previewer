@@ -1,28 +1,34 @@
 {
-  "name": "3d-previewer",
+  "name": "@fightron/3d-previewer",
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview --port 5050",
     "test:unit": "vitest --environment jsdom",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
+    "lint": "standardx --fix --verbose --plugin vue \"**/*.{js,vue}\""
   },
   "dependencies": {
-    "pinia": "^2.0.11",
-    "vue": "^3.2.31",
-    "vue-router": "^4.0.12"
+    "pinia": "2.0.12",
+    "vue": "3.2.31",
+    "vue-router": "4.0.14"
   },
   "devDependencies": {
-    "@rushstack/eslint-patch": "^1.1.0",
-    "@vitejs/plugin-vue": "^2.2.2",
-    "@vue/eslint-config-prettier": "^7.0.0",
+    "@vitejs/plugin-vue": "2.2.4",
     "@vue/test-utils": "^2.0.0-rc.18",
-    "eslint": "^8.5.0",
-    "eslint-plugin-vue": "^8.2.0",
-    "jsdom": "^19.0.0",
-    "prettier": "^2.5.1",
-    "vite": "^2.8.4",
-    "vitest": "^0.5.0"
+    "eslint-plugin-vue": "8.5.0",
+    "jsdom": "19.0.0",
+    "standardx": "7.0.0",
+    "vite": "2.8.6",
+    "vitest": "0.6.1"
+  },
+  "eslintConfig": {
+    "extends": "plugin:vue/vue3-essential",
+    "env": {
+      "vue/setup-compiler-macros": true
+    }
+  },
+  "engines": {
+    "node": "16.14.0"
   }
 }
