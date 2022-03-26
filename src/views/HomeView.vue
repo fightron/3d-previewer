@@ -6,6 +6,8 @@ const container = ref()
 
 onMounted(() => {
   container.value.appendChild(client.canvasElement)
+  client.feed('aspect-ratio', 16 / 9)
+  client.feed('fill-container')
 })
 
 onBeforeUnmount(() => {
@@ -33,6 +35,10 @@ onBeforeUnmount(() => {
 }
 
 .container :deep(canvas) {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   border: 2px solid red;
 }
 </style>
