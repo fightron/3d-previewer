@@ -1,6 +1,10 @@
 # @dimensionalpocket/3d-client-previewer
 
-This is a Vue 3 project that runs a web application hosting the studio's 3d clients for preview purposes.
+Vue3 application to preview 3D client rendering.
+
+Supported clients:
+
+* [@dimensionalpocket/3d-client-three](https://github.com/dimensionalpocket/3d-client-three)
 
 ## License
 
