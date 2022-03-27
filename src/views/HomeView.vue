@@ -8,9 +8,11 @@ onMounted(() => {
   container.value.appendChild(client.canvasElement)
   client.feed('aspect-ratio', 16 / 9)
   client.feed('fill-container')
+  client.feed('rendering', true)
 })
 
 onBeforeUnmount(() => {
+  client.feed('rendering', false)
   // Remove the canvas from the container
   // so it doesn't get killed when the DOM is unmounted
   client.canvasElement.remove()
