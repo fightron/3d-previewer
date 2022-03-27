@@ -31,9 +31,9 @@ onBeforeUnmount(() => {
 .container {
   margin: 32px;
   border: 2px solid yellow;
-  display: inline-block;
-  width: 800px;
-  height: 600px;
+  display: block;
+  width: 90%;
+  height: 800px;
 }
 
 .container :deep(canvas) {
