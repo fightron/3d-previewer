@@ -6,9 +6,9 @@ export const clientPlugin = {
     const client = new ThreeClient()
 
     client.feed('add', 'scene', { id: 'previewer-scene', bgcolor: '#b0ceff' })
-    client.feed('add', 'camera', { id: 'previewer-camera', fov: 30 })
+    client.feed('add', 'camera', { id: 'previewer-camera', fov: 20 })
     client.feed('add', 'light', { id: 'previewer-light', color: '#777777', type: 'ambient' })
-    client.feed('add', 'light', { id: 'previewer-sun', color: '#888888', type: 'directional' })
+    client.feed('add', 'light', { id: 'previewer-sun', color: '#888888', type: 'directional', shadows: { enabled: true, mapWidth: 4000, mapHeight: 4000 } })
     client.feed('add', 'skeleton-definition', { id: 'human', joints: HUMAN_SKELETON_JOINTS })
     client.feed('add', 'skeleton', { id: 'skeleton-1', definition: 'human' })
     client.feed('add', 'skeleton', { id: 'skeleton-2', definition: 'human' })
@@ -17,12 +17,12 @@ export const clientPlugin = {
     client.feed('add', 'point', { id: 'skeleton-point-2' })
     client.feed('add', 'point', { id: 'skeleton-point-3' })
 
-    client.feed('position', 'camera', 'previewer-camera', 0, 1, 6)
+    client.feed('position', 'camera', 'previewer-camera', 0, 1.25, 9)
     client.feed('position', 'point', 'skeleton-point-1', 1.8, 0, -0.5)
     client.feed('position', 'point', 'skeleton-point-2', -1.8, 0, -0.5)
-    client.feed('position', 'light', 'previewer-sun', 0, 2, 4)
-    client.feed('rotate', 'point', 'skeleton-point-1', 0, -1.5, 0)
-    client.feed('rotate', 'point', 'skeleton-point-2', 0, 1.5, 0)
+    client.feed('position', 'light', 'previewer-sun', 0, 2, 1.5)
+    client.feed('rotate', 'point', 'skeleton-point-1', 0, -Math.PI / 2, 0)
+    client.feed('rotate', 'point', 'skeleton-point-2', 0, Math.PI / 2, 0)
 
     client.feed('attach', 'camera', 'previewer-camera', 'scene', 'previewer-scene')
     client.feed('attach', 'light', 'previewer-light', 'scene', 'previewer-scene')
@@ -37,9 +37,14 @@ export const clientPlugin = {
     client.feed('camera', 'previewer-camera')
     client.feed('scene', 'previewer-scene')
 
-    client.feed('helper', 'RenderVolumes', 'skeleton-1', true)
-    client.feed('helper', 'RenderVolumes', 'skeleton-2', true)
+    client.feed('helper', 'RenderVolumes', 'skeleton-1', false)
+    client.feed('helper', 'RenderVolumes', 'skeleton-2', false)
     client.feed('helper', 'RenderVolumes', 'skeleton-3', true)
+
+    client.feed('helper', 'SetVolumeColor', 'skeleton-1', '*', '#db2c2c')
+    client.feed('helper', 'SetVolumeColor', 'skeleton-2', '*', '#3b64b8')
+    client.feed('helper', 'SetVolumeColor', 'skeleton-1', 'root', 'silver')
+    client.feed('helper', 'SetVolumeColor', 'skeleton-2', 'root', 'silver')
 
     client.feed('add', 'pose', {
       id: 'pose-1',
@@ -114,11 +119,6 @@ export const clientPlugin = {
     client.feed('pose', 'skeleton-3', 'rested-hand-R')
 
     const boneRotation = client.data.skeletons.get('skeleton-3').bones[0].rotation
-    // var scene = client.data.scenes.get('previewer-scene')
-    // var camera = client.data.cameras.get('previewer-camera')
-
-    // console.log(skeleton)
-    // console.log(camera)
 
     const animate = () => {
       requestAnimationFrame(animate)
