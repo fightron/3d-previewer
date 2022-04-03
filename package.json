@@ -1,0 +1,36 @@
+{
+  "name": "@dimensionalpocket/3d-client-previewer",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview --port 5050",
+    "test:unit": "vitest --environment jsdom",
+    "lint": "standardx --fix --verbose --plugin vue \"**/*.{js,vue}\"",
+    "lint:ci": "standardx --verbose --plugin vue \"**/*.{js,vue}\""
+  },
+  "dependencies": {
+    "@dimensionalpocket/3d-client-three": "github:dimensionalpocket/3d-client-three#previewer",
+    "pinia": "2.0.12",
+    "vue": "3.2.31",
+    "vue-router": "4.0.14"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "2.2.4",
+    "@vue/test-utils": "^2.0.0-rc.18",
+    "eslint-plugin-vue": "8.5.0",
+    "jsdom": "19.0.0",
+    "standardx": "7.0.0",
+    "vite": "2.8.6",
+    "vitest": "0.6.1"
+  },
+  "eslintConfig": {
+    "extends": "plugin:vue/vue3-essential",
+    "env": {
+      "vue/setup-compiler-macros": true
+    }
+  },
+  "engines": {
+    "node": ">= 16.14.2"
+  }
+}
