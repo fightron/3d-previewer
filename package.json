@@ -22,7 +22,7 @@
     "jsdom": "19.0.0",
     "standardx": "7.0.0",
     "vite": "2.9.9",
-    "vitest": "0.9.3"
+    "vitest": "0.12.9"
   },
   "eslintConfig": {
     "extends": "plugin:vue/vue3-essential",
