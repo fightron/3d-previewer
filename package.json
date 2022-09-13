@@ -10,7 +10,7 @@
     "lint:ci": "standardx --verbose --plugin vue \"**/*.{js,vue}\""
   },
   "dependencies": {
-    "@dimensionalpocket/3d-client-three": "github:dimensionalpocket/3d-client-three#0.1.0",
+    "@dimensionalpocket/3d-client-three": "github:dimensionalpocket/3d-client-three#0.2.1",
     "pinia": "2.0.21",
     "vue": "3.2.38",
     "vue-router": "4.1.5"
