@@ -12,7 +12,7 @@
   "dependencies": {
     "@dimensionalpocket/3d-client-three": "github:dimensionalpocket/3d-client-three#0.3.0",
     "pinia": "2.0.23",
-    "vue": "3.2.41",
+    "vue": "3.2.42",
     "vue-router": "4.1.6"
   },
   "devDependencies": {
