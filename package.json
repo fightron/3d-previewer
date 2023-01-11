@@ -19,7 +19,7 @@
     "@vitejs/plugin-vue": "2.3.4",
     "@vue/test-utils": "2.2.7",
     "eslint-plugin-vue": "8.7.1",
-    "jsdom": "19.0.0",
+    "jsdom": "20.0.3",
     "standardx": "7.0.0",
     "vite": "2.9.15",
     "vitest": "0.26.3"
